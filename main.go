@@ -31,10 +31,11 @@ func main() {
 	}
 
 	go handleSignal(s, sig)
-
 	err := s.ListenAndServe()
 	if !errors.Is(err, http.ErrServerClosed) {
 		log.Fatalln(err)
+	} else {
+		log.Println("Server closed")
 	}
 }
 
